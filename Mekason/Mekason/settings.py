@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'listing_site.apps.ListingSiteConfig',
+    "phonenumber_field",
+    "djmoney",
 ]
 
 MIDDLEWARE = [
