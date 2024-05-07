@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+import listing_site.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', listing_site.views.home, name='home'),
 ]
 
 if settings.DEBUG:
