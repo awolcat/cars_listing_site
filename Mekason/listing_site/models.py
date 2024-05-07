@@ -5,9 +5,27 @@ from djmoney.models.fields import MoneyField
 
 # Create your models here.
 
-class CategoriesEnum(models.TextChoices):
+class StatusEnum(models.TextChoices):
     AVAILABLE = 'available'
     SOLD = 'sold'
+
+class FuelTypeEnum(models.TextChoices):
+    PETROL = 'petrol'
+    DIESEL = 'diesel'
+    HYBRID = 'hybrid'
+    ELECTRIC = 'electric'
+
+class BodyTypeEnum(models.TextChoices):
+    SEDAN = 'sedan'
+    COUPE = 'coupe'
+    HATCHBACK = 'hatchback'
+    SUV = 'suv'
+    VAN = 'van'
+    TRUCK = 'truck'
+    WAGON = 'wagon'
+    CONVERTIBLE = 'convertible'
+    MINIVAN = 'minivan'
+    PICKUP = 'pickup'
 
 
 class BaseModel(models.Model):
@@ -18,13 +36,16 @@ class BaseModel(models.Model):
         abstract = True
 
 class Car(BaseModel, models.Model):
-    CategoriesEnum = CategoriesEnum
+    StatusEnum = StatusEnum
     make = models.CharField(max_length=100, null=False, blank=False)
     model = models.CharField(max_length=100, null=False, blank=False)
     year = models.CharField(max_length=4, null=False, blank=False)
+    location = models.CharField(max_length=100, null=False, blank=False)
+    body_type = models.CharField(max_length=100, null=False, blank=False)
+    fuel_type = models.CharField(max_length=100, null=False, blank=False)
     price = MoneyField(max_digits=14, decimal_places=2, default_currency='KES', null=False, blank=False)
     description = models.TextField(max_length=3000, null=False, blank=False)
-    status = models.CharField(max_length=10, choices=CategoriesEnum.choices, default=CategoriesEnum.AVAILABLE)
+    status = models.CharField(max_length=100, choices=StatusEnum.choices, default=StatusEnum.AVAILABLE)
 
 class Image(BaseModel, models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='images')
