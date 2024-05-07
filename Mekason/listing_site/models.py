@@ -29,7 +29,7 @@ class Car(BaseModel, models.Model):
 class Image(BaseModel, models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='images/cars/', null=False, blank=False)
-    
+
 
 class Contact(BaseModel, models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
