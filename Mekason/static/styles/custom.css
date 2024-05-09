@@ -1,0 +1,20 @@
+.price-label {
+    background-color: black;
+    display: inline;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0px 10px;
+}
+
+.sold-label {
+    background-color: red;
+    display: inline;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0px 10px;
+}
+
+
+

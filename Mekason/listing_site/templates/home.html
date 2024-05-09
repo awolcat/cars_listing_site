@@ -1,14 +1,30 @@
 {% extends 'base.html'%}
 
 {% block body %}
-    <div class="container">
-        <div class="card text-bg-dark">
-            <img src="..." class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small>Last updated 3 mins ago</small></p>
-            </div>
-          </div>
+<div class="container-fluid hero">
+  <div class="card text-bg-dark">
+     <img src="/media/images/cars/Toyota_Wish_first_generation_front_Kajang.jpg" class="card-img" alt="toyota wish">
+     <div class="card-img-overlay">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+     </div>
+  </div>
+  
+  <div class="row row-cols-auto align-items-center">
+  {% for car in cars %}
+  <div class="col-sm-3">
+    <div class="card text-bg-dark">
+      <img src="{{ car.photos.0 }}" class="h-100 card-img" alt="toyota wish">
+      <div class="card-img-overlay">
+          {% if car.status == 'SOLD' %}
+          <p class="card-text sold-label">Sold</p>
+          {% endif %}
+          <p class="card-text price-label">{{car.price}}</p>
+      </div>
     </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
 {% endblock %}
