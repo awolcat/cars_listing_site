@@ -1,3 +1,8 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
 .price-label {
     background-color: black;
     display: inline;
@@ -16,5 +21,19 @@
     padding: 0px 10px;
 }
 
+.card {
+    border-radius: 0px;
+    border: 1px solid #f1f1f1;
+}
 
+.hero {
+    padding: 0px;
+    height: 100dvh;
+    overflow: hidden;
+}
 
+.card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

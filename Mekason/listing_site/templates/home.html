@@ -1,30 +1,42 @@
 {% extends 'base.html'%}
 
 {% block body %}
-<div class="container-fluid hero">
-  <div class="card text-bg-dark">
-     <img src="/media/images/cars/Toyota_Wish_first_generation_front_Kajang.jpg" class="card-img" alt="toyota wish">
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Try scrolling the rest of the page to see this option in action.</p>
+  </div>
+</div>
+
+  <div class="card text-bg-dark hero">
+     <img src="/static/images/hero.jpg" class="hero-img card-img img-fluid" alt="hero section">
      <div class="card-img-overlay">
-        <h5 class="card-title">Card title</h5>
+        <h3 class="card-title">ONLY THE BEST DEALS</h3>
+        <h1 class="card-title">AT <span style="color:darkorange">MEKASON</span></h1>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
         <p class="card-text"><small>Last updated 3 mins ago</small></p>
      </div>
   </div>
   
+<div class="container-fluid">
   <div class="row row-cols-auto align-items-center">
-  {% for car in cars %}
-  <div class="col-sm-3">
-    <div class="card text-bg-dark">
-      <img src="{{ car.photos.0 }}" class="h-100 card-img" alt="toyota wish">
-      <div class="card-img-overlay">
-          {% if car.status == 'SOLD' %}
-          <p class="card-text sold-label">Sold</p>
-          {% endif %}
-          <p class="card-text price-label">{{car.price}}</p>
+    {% for car in cars %}
+    <div class="col-sm-3">
+      <div class="card text-bg-dark">
+        <img src="{{ car.photos.0 }}" class="card-img" alt="{{ car.make }} {{ car.model }} {{ car.year }}">
+        <div class="card-img-overlay">
+            {% if car.status == 'SOLD' %}
+            <p class="card-text sold-label">Sold</p>
+            {% endif %}
+            <p class="card-text price-label">{{car.price}}</p>
+        </div>
       </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
 </div>
 {% endblock %}

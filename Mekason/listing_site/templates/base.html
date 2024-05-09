@@ -25,16 +25,12 @@
             </li>
                 
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          
         </div>
       </div>
     </nav>
-    <div class="container-fluid">
-      {% block body %}
-      {% endblock %}
+    {% block body %}
+    {% endblock %}
     </div>
     <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
       <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
