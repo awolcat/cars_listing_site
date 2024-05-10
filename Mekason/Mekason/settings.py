@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'listing_site.apps.ListingSiteConfig',
     "phonenumber_field",
     "djmoney",
+    "fontawesomefree",
 ]
 
 MIDDLEWARE = [

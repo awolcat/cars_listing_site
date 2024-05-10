@@ -10,22 +10,23 @@ class StatusEnum(models.TextChoices):
     SOLD = 'sold'
 
 class FuelTypeEnum(models.TextChoices):
-    PETROL = 'petrol'
-    DIESEL = 'diesel'
-    HYBRID = 'hybrid'
-    ELECTRIC = 'electric'
+    PETROL = 'Petrol'
+    DIESEL = 'Diesel'
+    HYBRID = 'Hybrid'
+    ELECTRIC = 'Electric'
 
 class BodyTypeEnum(models.TextChoices):
-    SEDAN = 'sedan'
-    COUPE = 'coupe'
-    HATCHBACK = 'hatchback'
-    SUV = 'suv'
-    VAN = 'van'
-    TRUCK = 'truck'
-    WAGON = 'wagon'
-    CONVERTIBLE = 'convertible'
-    MINIVAN = 'minivan'
-    PICKUP = 'pickup'
+    SEDAN = 'Sedan'
+    COUPE = 'Coupe'
+    HATCHBACK = 'Hatchback'
+    SUV = 'SUV'
+    VAN = 'Van'
+    PICKUP = 'Pickup'
+    DOUBLE_CAB = 'Double Cab'
+    WAGON = 'Wagon'
+    CONVERTIBLE = 'Convertible'
+    MINIVAN = 'Minivan'
+    
 
 
 class BaseModel(models.Model):
@@ -41,11 +42,11 @@ class Car(BaseModel, models.Model):
     model = models.CharField(max_length=100, null=False, blank=False)
     year = models.CharField(max_length=4, null=False, blank=False)
     location = models.CharField(max_length=100, null=False, blank=False)
-    body_type = models.CharField(max_length=100, null=False, blank=False)
-    fuel_type = models.CharField(max_length=100, null=False, blank=False)
+    body_type = models.CharField(max_length=100, choices=BodyTypeEnum.choices, default=BodyTypeEnum.SEDAN)
+    fuel_type = models.CharField(max_length=100, choices=FuelTypeEnum.choices, default=FuelTypeEnum.PETROL)
     price = MoneyField(max_digits=14, decimal_places=2, default_currency='KES', null=False, blank=False)
     description = models.TextField(max_length=3000, null=False, blank=False)
-    status = models.CharField(max_length=100, choices=StatusEnum.choices, default=StatusEnum.AVAILABLE)
+    sold = models.BooleanField(default=False)
 
     def photos(self):
         images = []
