@@ -32,8 +32,39 @@
     overflow: hidden;
 }
 
-.card-img-overlay {
+.hero-overlay {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.hero-overlay h1, h3 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.mekason-span {
+    color: darkorange;
+    font-size: 2em;
+}
+
+
+.hero-btn {
+    width: 20%;
+    background-color: darkorange;
+    align-self: center;
+    position: absolute;
+    bottom: 20%;
+    border: none;
+    height: 10%;
+    opacity: 1;
+    transition: 0.5s;
+    border:#f1f1f1 1px solid;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+}
+
+.hero-btn:hover {
+    opacity: 0.2;
 }

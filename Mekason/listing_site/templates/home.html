@@ -13,11 +13,10 @@
 
   <div class="card text-bg-dark hero">
      <img src="/static/images/hero.jpg" class="hero-img card-img img-fluid" alt="hero section">
-     <div class="card-img-overlay">
+     <div class="card-img-overlay hero-overlay">
         <h3 class="card-title">ONLY THE BEST DEALS</h3>
-        <h1 class="card-title">AT <span style="color:darkorange">MEKASON</span></h1>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+        <h1 class="card-title">AT <span class="mekason-span">MEKASON</span></h1>
+        <button class="hero-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" >Find Your Dream Car</button>
         <p class="card-text"><small>Last updated 3 mins ago</small></p>
      </div>
   </div>
@@ -29,11 +28,15 @@
       <div class="card text-bg-dark">
         <img src="{{ car.photos.0 }}" class="card-img" alt="{{ car.make }} {{ car.model }} {{ car.year }}">
         <div class="card-img-overlay">
-            {% if car.status == 'SOLD' %}
+            {% if car.status == 'sold' %}
             <p class="card-text sold-label">Sold</p>
             {% endif %}
             <p class="card-text price-label">{{car.price}}</p>
         </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ car.make }} {{ car.model }} {{ car.year }}</h5>
+        <p class="card-text">{{ car.description }}</p>
       </div>
     </div>
     {% endfor %}
