@@ -23,6 +23,7 @@ import listing_site.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', listing_site.views.home, name='home'),
+    path('<int:id>/<str:mmy>/', listing_site.views.car_detail, name='car_detail'),
 ]
 
 if settings.DEBUG:

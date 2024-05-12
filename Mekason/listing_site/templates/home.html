@@ -36,7 +36,7 @@
       </div>
       <div class="card-body car-info">
         <h5 class="card-title">{{ car.make }} {{ car.model }} {{ car.year }}</h5>
-        <a href="#" class="stretched-link"></a>
+        <a href="{% url 'car_detail' car.id car.slug %}" class="stretched-link"></a>
         <div class="row row-cols-2">
           <div class="col">
             <p class="card-text"><i class="fa-solid fa-gas-pump" style="color: #9e9a9a;"></i> {{ car.fuel_type }} </p>
