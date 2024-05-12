@@ -88,3 +88,14 @@
 .car-info > h5 {
     margin-bottom: 0.5em;
 }
+
+.cd-carousel-img img {
+    width: auto;
+    height: 400px;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.cd-carousel-img img:hover {
+    cursor: pointer;
+}

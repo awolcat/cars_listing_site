@@ -14,5 +14,11 @@ def home(request):
 
 def car_detail(request, id, mmy):
     car = Car.objects.get(id=id)
-    car.photos = car.photos()
+    photos = car.photos()
+    photos_dict = {}
+    index = 0
+    for photo in photos:
+        photos_dict[str(index)] = photo
+        index+=1
+    car.photos_dict = photos_dict
     return render(request, 'car_detail.html', {'car': car})
