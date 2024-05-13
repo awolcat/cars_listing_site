@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', listing_site.views.home, name='home'),
     path('<int:id>/<str:mmy>/', listing_site.views.car_detail, name='car_detail'),
+    path('search/', listing_site.views.search, name='search'),
 ]
 
 if settings.DEBUG:

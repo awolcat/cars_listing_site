@@ -11,7 +11,8 @@
   <div class="offcanvas-body">
     <p>Try scrolling the rest of the page to see this option in action.</p>
     <div class="d-flex" style="justify-content: center;">
-    <form class="w-75", role="search">
+    <form action="{% url 'search' %}" method="post"  class="w-75" role="search">
+      {% csrf_token %}
       {{form|crispy}}
       <button class="btn btn-outline-success w-100" type="submit">Search</button>
     </form>  
@@ -29,35 +30,41 @@
      </div>
   </div>
   
-  
-<div class="container-fluid">
-  <div class="row row-cols-auto align-items-center">
-    {% for car in cars %}
-    <div class="col-sm-3 car-card" style="position: relative;">
-      <div class="card text-bg-dark">
-        <img src="{{ car.photos.0 }}" class="card-img" alt="{{ car.make }} {{ car.model }} {{ car.year }}">
-        <div class="card-img-overlay">
-            {% if car.sold %}
-            <p class="card-text sold-label">Sold</p>
-            {% endif %}
-            <p class="card-text price-label">{{car.price}}</p>
-        </div>
-      </div>
-      
-      <div class="card-body car-info">
-        <h5 class="card-title">{{ car.make }} {{ car.model }} {{ car.year }}</h5>
-        <a href="{% url 'car_detail' car.id car.slug %}" class="stretched-link"></a>
-        <div class="row row-cols-2">
-          <div class="col">
-            <p class="card-text"><i class="fa-solid fa-gas-pump" style="color: #9e9a9a;"></i> {{ car.fuel_type }} </p>
-          </div>
-          <div class="col">
-            <p class="card-text"> <i class="fa-solid fa-location-dot" style="color: #9e9a9a;"></i> {{ car.location }} </p>
+{% if cars %}
+  <div class="container-fluid">
+    <div class="row row-cols-auto align-items-center">
+      {% for car in cars %}
+      <div class="col-sm-3 car-card" style="position: relative;">
+        <div class="card text-bg-dark">
+          <img src="{{ car.photos.0 }}" class="card-img" alt="{{ car.make }} {{ car.model }} {{ car.year }}">
+          <div class="card-img-overlay">
+              {% if car.sold %}
+              <p class="card-text sold-label">Sold</p>
+              {% endif %}
+              <p class="card-text price-label">{{car.price}}</p>
           </div>
         </div>
+        
+        <div class="card-body car-info">
+          <h5 class="card-title">{{ car.make }} {{ car.model }} {{ car.year }}</h5>
+          <a href="{% url 'car_detail' car.id car.slug %}" class="stretched-link"></a>
+          <div class="row row-cols-2">
+            <div class="col">
+              <p class="card-text"><i class="fa-solid fa-gas-pump" style="color: #9e9a9a;"></i> {{ car.fuel_type }} </p>
+            </div>
+            <div class="col">
+              <p class="card-text"> <i class="fa-solid fa-location-dot" style="color: #9e9a9a;"></i> {{ car.location }} </p>
+            </div>
+          </div>
+        </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
+{% else %}
+<div class="container" style="height: 90dvh">
+  <p>Couldn't find what you were looking for?</p>
+  <p><a href="{% url 'home' %}">Try searching again.</a></p>
 </div>
+{% endif %}
 {% endblock %}
