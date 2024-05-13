@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="container w-50">
-<div id="carouselExampleIndicators" class="carousel carousel-dark slide">
+<div class="container-fluid row">
+  <div class="col-3 quick-info">
+    <h4>{{ car.make }} {{ car.model }} {{ car.year }}</h4>
+    <p>{{car.make}}</p> 
+    <p>{{car.model}}</p> 
+    <p>{{car.year}}</p> 
+    <p>{{car.fuel_type}}</p> 
+    <p>{{car.body_type}}</p>
+  </div>
+  <div id="carouselExampleIndicators" class="carousel carousel-dark slide col-9">
     <div class="carousel-indicators">
       {% for index, photo in car.photos_dict.items %}
       {% if index == '0' %}
@@ -34,6 +42,15 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+</div>
+<div class="container-fluid">
+    <h4>About the car</h4>
+    <div class="about-car-content">
+        <p>Make: {{car.make}} Model: {{car.model}} Year: {{car.year}} Fuel: {{car.fuel_type}}
+            Body: {{car.body_type}}
+        </p>
+        <p>{{car.description}}</p>
+    </div>
 </div>
 
 {% endblock %}

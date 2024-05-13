@@ -3,6 +3,15 @@ from django.contrib import admin
 from .models import Image
 
 
+class SearchForm(forms.Form):
+    YEAR_CHOICES = [(str(year), str(year)) for year in range(1980, 2019)]
+    search_term = forms.CharField(max_length=100, required=False)
+    make = forms.CharField(max_length=50, required=False)
+    model = make = forms.CharField(max_length=50, required=False)
+    year = forms.ChoiceField(choices=YEAR_CHOICES,
+                                required=False
+                                )
+
 class MultipleFileInput(forms.ClearableFileInput):
     allow_multiple_selected = True
 

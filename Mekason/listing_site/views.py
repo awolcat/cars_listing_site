@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Car
+from .forms import SearchForm
+
 
 # Create your views here.
 
@@ -10,7 +12,8 @@ def home(request):
         car.photos = car.photos()
         car.slug = f'{car.make}-{car.model}-{car.year}'
         cars.append(car)
-    return render(request, 'home.html', {'cars': cars})
+    form = SearchForm()
+    return render(request, 'home.html', {'cars': cars, 'form': form})
 
 def car_detail(request, id, mmy):
     car = Car.objects.get(id=id)

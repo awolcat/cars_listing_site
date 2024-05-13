@@ -1,13 +1,21 @@
 {% extends 'base.html'%}
 
+{% load crispy_forms_tags %}
+
 {% block body %}
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Find Your Car</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <p>Try scrolling the rest of the page to see this option in action.</p>
+    <div class="d-flex" style="justify-content: center;">
+    <form class="w-75", role="search">
+      {{form|crispy}}
+      <button class="btn btn-outline-success w-100" type="submit">Search</button>
+    </form>  
+  </div>
   </div>
 </div>
 
@@ -20,6 +28,7 @@
         <p class="card-text"><small>Last updated 3 mins ago</small></p>
      </div>
   </div>
+  
   
 <div class="container-fluid">
   <div class="row row-cols-auto align-items-center">
@@ -34,6 +43,7 @@
             <p class="card-text price-label">{{car.price}}</p>
         </div>
       </div>
+      
       <div class="card-body car-info">
         <h5 class="card-title">{{ car.make }} {{ car.model }} {{ car.year }}</h5>
         <a href="{% url 'car_detail' car.id car.slug %}" class="stretched-link"></a>
