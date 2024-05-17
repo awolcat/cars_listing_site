@@ -7,17 +7,23 @@ from .forms import SearchForm
 
 # Create your views here.
 
-def home(request):
+def home(request, make=None):
     query = Car.objects.all()
+    makes = Car.objects.values('make').distinct()
+    makes = [make['make'] for make in makes]
+    if make:
+        query = query.filter(Q(make__icontains=make)).all()
     cars =[]
     for car in query:
         car.photos = car.photos()
         car.slug = f'{car.make}-{car.model}-{car.year}'
         cars.append(car)
     form = SearchForm()
-    return render(request, 'home.html', {'cars': cars, 'form': form})
+    
+    return render(request, 'home.html', {'cars': cars, 'makes': makes, 'form': form})
 
 def car_detail(request, id, mmy):
+    s_cars = []
     car = Car.objects.get(id=id)
     photos = car.photos()
     photos_dict = {}
@@ -26,7 +32,12 @@ def car_detail(request, id, mmy):
         photos_dict[str(index)] = photo
         index+=1
     car.photos_dict = photos_dict
-    return render(request, 'car_detail.html', {'car': car})
+    similar_cars = Car.objects.filter(body_type=car.body_type, fuel_type=car.fuel_type).exclude(id=car.id).all()[:4]
+    for s_car in similar_cars:
+        s_car.photos = s_car.photos()
+        s_car.slug = f'{s_car.make}-{s_car.model}-{s_car.year}'
+        s_cars.append(s_car)
+    return render(request, 'car_detail.html', {'car': car, 'similar_cars': s_cars})
 
 def search(request, methods=['POST']):
     cars = []
@@ -41,10 +52,10 @@ def search(request, methods=['POST']):
             query = query.filter(Q(model__icontains=data['model'])).all()
         if data['year'] and data['year'] != 'Any':
             query = query.filter(Q(year__icontains=data['year'])).all()
-        #query = Car.objects.filter( | Q(model__icontains=data['model']) | Q(year__icontains=data['year']))
         print(query)
         for car in query:
             car.photos = car.photos()
             car.slug = f'{car.make}-{car.model}-{car.year}'
             cars.append(car)
     return render(request, 'home.html', {'cars': cars, 'form': form})
+

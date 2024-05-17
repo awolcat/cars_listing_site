@@ -53,4 +53,39 @@
     </div>
 </div>
 
+
+{% if similar_cars %}
+  <div class="container-fluid">
+    <div class="row row-cols-auto align-items-center">
+      {% for car in similar_cars %}
+      <div class="col-sm-3 car-card" style="position: relative;">
+        <div class="card text-bg-dark">
+          <img src="{{ car.photos.0 }}" class="card-img" alt="{{ car.make }} {{ car.model }} {{ car.year }}">
+          <div class="card-img-overlay">
+              {% if car.sold %}
+              <p class="card-text sold-label">Sold</p>
+              {% endif %}
+              <p class="card-text price-label">{{car.price}}</p>
+          </div>
+        </div>
+        
+        <div class="card-body car-info">
+          <h5 class="card-title">{{ car.make }} {{ car.model }} {{ car.year }}</h5>
+          <a href="{% url 'car_detail' car.id car.slug %}" class="stretched-link"></a>
+          <div class="row row-cols-2">
+            <div class="col">
+              <p class="card-text"><i class="fa-solid fa-gas-pump" style="color: #9e9a9a;"></i> {{ car.fuel_type }} </p>
+            </div>
+            <div class="col">
+              <p class="card-text"> <i class="fa-solid fa-location-dot" style="color: #9e9a9a;"></i> {{ car.location }} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endif %}
+
 {% endblock %}

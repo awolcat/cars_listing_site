@@ -72,6 +72,19 @@
     color: white;
 }
 
+.make-filter {
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+}
+
+.make-filter h4 {
+    padding-bottom: 0.5em;
+    text-align: center;
+    color: grey;
+    border-bottom: grey 3px solid;
+}
+
 .hero-btn:hover {
     transition: 0.5s;
     opacity: 0.4;
@@ -124,3 +137,19 @@
     padding: 10px 20px;
     border-radius: 10px;
 }
+
+.whatsapp-float {
+    padding: 20px 20px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.whatsapp-float i {
+    border-radius: 30%;
+    font-size: 3em;
+    padding: 10px;
+    background-color: green;
+    color: white;
+}
+
