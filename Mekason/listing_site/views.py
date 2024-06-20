@@ -2,8 +2,7 @@ from django.shortcuts import render
 from django.db.models import Q
 from .models import Car
 from .forms import SearchForm
-
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -16,11 +15,20 @@ def home(request, make=None):
     cars =[]
     for car in query:
         car.photos = car.photos()
+        if not car.photos:
+            car.photos = ['https://via.placeholder.com/300']
         car.slug = f'{car.make}-{car.model}-{car.year}'
         cars.append(car)
+    
+    paginator = Paginator(cars, 25) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     form = SearchForm()
     
-    return render(request, 'home.html', {'cars': cars, 'makes': makes, 'form': form})
+    return render(request, 'home.html',{'page_obj': page_obj, 
+                                        'makes': makes,
+                                        'form': form, 
+                                        'filter': make})
 
 def car_detail(request, id, mmy):
     s_cars = []
@@ -59,3 +67,5 @@ def search(request, methods=['POST']):
             cars.append(car)
     return render(request, 'home.html', {'cars': cars, 'form': form})
 
+def services(request):
+    return render(request, 'services.html')

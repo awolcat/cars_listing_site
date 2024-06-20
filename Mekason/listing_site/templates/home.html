@@ -32,20 +32,23 @@
 
   <div class="container-fluid make-filter">
     
-    <div class="row row-cols-auto align-items-center">
+    <div class="row row-cols-auto row-gap-2 align-items-center">
       Filter by Make:
       {% for make in makes %}
-      <div class="col-sm-3">
-        <a href="{% url 'home' make %}" class="btn btn-secondary">{{ make }}</a>
+      <div class="">
+        <a href="{% url 'make_home' make %}" class="btn btn-secondary">{{ make }}</a>
       </div>
       {% endfor %}
+      {% if filter %}
+        <a href="{% url 'home' %}" class="btn btn-danger btn-sm">Clear Filters</a>
+      {% endif %}
   </div>
   </div>
 
-{% if cars %}
+{% if page_obj %}
   <div class="container-fluid">
     <div class="row row-cols-auto align-items-center">
-      {% for car in cars %}
+      {% for car in page_obj %}
       <div class="col-sm-3 car-card" style="position: relative;">
         <div class="card text-bg-dark">
           <img src="{{ car.photos.0 }}" class="card-img" alt="{{ car.make }} {{ car.model }} {{ car.year }}">
@@ -79,4 +82,23 @@
   <p><a href="{% url 'home' %}">Try searching again.</a></p>
 </div>
 {% endif %}
+
+<div class="pagination">
+  <span class="step-links">
+      {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
+
 {% endblock %}

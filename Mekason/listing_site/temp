@@ -1,0 +1,26 @@
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Toyota', 'Corolla', '2023', 'Nairobi', 'Sedan', 'Petrol', 1500000.00, 'Clean Toyota Corolla in excellent condition.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
+
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Honda', 'Civic', '2022', ' Mombasa', 'Hatchback', 'Petrol', 1200000.00, 'Slightly used Honda Civic, well maintained.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
+
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Nissan', 'X-Trail', '2021', 'Kisumu', 'SUV', 'Petrol', 2000000.00, 'Spacious Nissan X-Trail, perfect for family outings.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
+
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Ford', 'Escape', '2020', 'Eldoret', 'SUV', 'Petrol', 1800000.00, 'Reliable Ford Escape with low mileage.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
+
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Mitsubishi', 'Outlander', '2024', 'Nakuru', 'SUV', 'Petrol', 2200000.00, 'Brand new Mitsubishi Outlander, full warranty.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
+
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Subaru', 'Forester', '2023', 'Nyeri', 'SUV', 'Petrol', 1900000.00, 'Safe and comfortable Subaru Forester for all terrains.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
+
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Kia', 'Sportage', '2022', 'Kakamega', 'SUV', 'Petrol', 1600000.00, 'Stylish Kia Sportage with all the features.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
+
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Hyundai', 'Tucson', '2021', 'Kisii', 'SUV', 'Petrol', 1700000.00, 'Fuel-efficient Hyundai Tucson, perfect for city driving.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
+
+INSERT INTO listing_site_car (make, model, year, location, body_type, fuel_type, price, description, sold, created_at, updated_at, price_currency)
+VALUES ('Mazda', 'CX-5', '2020', 'Meru', 'SUV', 'Petrol', 1400000.00, 'Sporty Mazda CX-5 with excellent handling.', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KES');
