@@ -20,7 +20,7 @@ def home(request, make=None):
         car.slug = f'{car.make}-{car.model}-{car.year}'
         cars.append(car)
     
-    paginator = Paginator(cars, 25) 
+    paginator = Paginator(cars, 12) 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     form = SearchForm()
