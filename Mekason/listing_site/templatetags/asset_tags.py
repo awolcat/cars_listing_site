@@ -5,6 +5,6 @@ from uuid import uuid4
 
 register = template.Library()
 
-@register.tag(name='asset_id')
-def do_asset_id(parser, token):
+@register.simple_tag
+def asset_id():
     return uuid4()
