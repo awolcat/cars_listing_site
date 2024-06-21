@@ -55,10 +55,11 @@
 
 
 {% if similar_cars %}
-  <div class="container-fluid">
-    <div class="row row-cols-auto align-items-center">
+  <div class="container-fluid similar-cars">
+    <h4>Similar Cars</h4>
+    <div class="row row-cols-auto align-items-center d-flex flex-nowrap">
       {% for car in similar_cars %}
-      <div class="col-sm-3 car-card" style="position: relative;">
+      <div class="col-sm-2 car-card" style="position: relative;">
         <div class="card text-bg-dark">
           <img src="{{ car.photos.0 }}" class="card-img" alt="{{ car.make }} {{ car.model }} {{ car.year }}">
           <div class="card-img-overlay">

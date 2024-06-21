@@ -38,7 +38,7 @@ def car_detail(request, id, mmy):
         photos_dict[str(index)] = photo
         index+=1
     car.photos_dict = photos_dict
-    similar_cars = Car.objects.filter(body_type=car.body_type, fuel_type=car.fuel_type).exclude(id=car.id).all()[:4]
+    similar_cars = Car.objects.filter(body_type=car.body_type, fuel_type=car.fuel_type).exclude(id=car.id).all()
     for s_car in similar_cars:
         s_car.photos = s_car.photos()
         s_car.slug = f'{s_car.make}-{s_car.model}-{s_car.year}'

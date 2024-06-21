@@ -96,6 +96,11 @@
     border: grey 1px solid;
 }
 
+.similar-cars {
+    padding: 10px 10px;
+    border: none;
+    overflow-x: scroll;
+}
 
 
 .car-card:hover {
@@ -212,5 +217,7 @@ footer {
     .mekason-span {
         font-size: 1.5em;
     }
+
+    
 }
 
