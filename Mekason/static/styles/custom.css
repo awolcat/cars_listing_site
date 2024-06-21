@@ -202,3 +202,15 @@ footer {
     position: relative;
     bottom: 0;
 }
+
+/*create a media query so that contents of .hero-overlay h1, h3 and .mekason-span never wrap due to screen size*/
+@media screen and (max-width: 768px) {
+    .hero-overlay h1, h3 {
+        font-size: 2em;
+    }
+
+    .mekason-span {
+        font-size: 1.5em;
+    }
+}
+

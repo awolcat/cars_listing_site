@@ -15,8 +15,6 @@ def home(request, make=None):
     cars =[]
     for car in query:
         car.photos = car.photos()
-        if not car.photos:
-            car.photos = ['https://via.placeholder.com/300']
         car.slug = f'{car.make}-{car.model}-{car.year}'
         cars.append(car)
     

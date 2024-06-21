@@ -50,6 +50,9 @@ class Car(BaseModel, models.Model):
 
     def photos(self):
         images = []
+        if self.images.count() == 0:
+            images.append('https://via.placeholder.com/300')
+            return images
         for image in self.images.all():
             images.append(image.image.url)
         return images
