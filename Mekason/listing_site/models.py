@@ -47,7 +47,7 @@ class Car(BaseModel, models.Model):
     price = MoneyField(max_digits=14, decimal_places=2, default_currency='KES', null=False, blank=False)
     description = models.TextField(max_length=3000, null=False, blank=False)
     sold = models.BooleanField(default=False)
-
+    
     def photos(self):
         images = []
         if self.images.count() == 0:
@@ -56,6 +56,9 @@ class Car(BaseModel, models.Model):
         for image in self.images.all():
             images.append(image.image.url)
         return images
+    
+    def __str__(self):
+        return f'{self.make} {self.model} {self.year}'
 
 
 class Image(BaseModel, models.Model):
