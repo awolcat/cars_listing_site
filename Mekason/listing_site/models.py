@@ -43,10 +43,10 @@ class Car(BaseModel, models.Model):
     year = models.CharField(max_length=4, null=False, blank=False)
     location = models.CharField(max_length=100, null=False, blank=False)
     body_type = models.CharField(max_length=100, choices=BodyTypeEnum.choices, default=BodyTypeEnum.SEDAN)
-    fuel_type = models.CharField(max_length=100, choices=FuelTypeEnum.choices, default=FuelTypeEnum.PETROL)
     price = MoneyField(max_digits=14, decimal_places=2, default_currency='KES', null=False, blank=False)
     description = models.TextField(max_length=3000, null=False, blank=False)
     sold = models.BooleanField(default=False)
+    fuel_type = models.CharField(max_length=100, choices=FuelTypeEnum.choices, default=FuelTypeEnum.PETROL)
     
     def photos(self):
         images = []
