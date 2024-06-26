@@ -92,6 +92,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Mekason.wsgi.app'
+ASGI_APPLICATION = 'Mekason.asgi.app'
 
 
 # Database
