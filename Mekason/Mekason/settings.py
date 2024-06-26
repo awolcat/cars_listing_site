@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-cqsw(!bjbsdblc*8ttq_c9gpe53%k)l5gfa7u9!75h99^p9ot)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*.vercel.app']
 
 
 # Application definition
@@ -91,7 +91,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Mekason.wsgi.application'
+WSGI_APPLICATION = 'Mekason.wsgi.app'
 
 
 # Database
