@@ -40,11 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "phonenumber_field",
     "djmoney",
-    "fontawesomefree",
     'crispy_forms',
     'crispy_bootstrap5',
     'listing_site.apps.ListingSiteConfig',
-]
+] # "fontawesomefree",
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
