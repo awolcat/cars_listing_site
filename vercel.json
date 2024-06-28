@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "Mekason/asgi.py",
+        "src": "Mekason/wsgi.py",
         "use": "@vercel/python"
       },
       {
@@ -20,7 +20,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "Mekason/asgi.py"
+        "dest": "Mekason/wsgi.py"
       }
     ]
   }
