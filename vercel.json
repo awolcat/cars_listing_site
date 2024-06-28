@@ -2,8 +2,15 @@
     "version": 2,
     "builds": [
       {
-        "src": "Mekason/Mekason/asgi.py",
+        "src": "Mekason/asgi.py",
         "use": "@vercel/python"
+      },
+      {
+        "src": "build_files.sh",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles"
+        }
       }
     ],
     "routes": [
@@ -13,7 +20,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "Mekason/Mekason/asgi.py"
+        "dest": "Mekason/asgi.py"
       }
     ]
   }

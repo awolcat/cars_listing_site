@@ -112,9 +112,9 @@ DATABASES = {
 
         'NAME': 'railway', #PGDATABASE
         'USER': 'postgres', #PGUSER
-        'PASSWORD': 'gaRRZovbEkctDmSqFhGofXjDlUkMbiKB', #PGPASSWORD
-        'HOST': 'viaduct.proxy.rlwy.net', #PGHOST
-        'PORT': '57584', #PGPORT
+        'PASSWORD': 'lOVHyomlqvYbnFOzjhHPoZujwaQscRUY', #PGPASSWORD
+        'HOST': 'monorail.proxy.rlwy.net', #PGHOST
+        'PORT': '35085', #PGPORT
     }
 }
 
