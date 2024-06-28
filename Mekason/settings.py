@@ -40,10 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "phonenumber_field",
     "djmoney",
+    "fontawesomefree",
     'crispy_forms',
     'crispy_bootstrap5',
     'listing_site.apps.ListingSiteConfig',
-] # "fontawesomefree",
+]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
@@ -97,25 +98,25 @@ ASGI_APPLICATION = 'Mekason.asgi.app'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': 'railway', #PGDATABASE
-        'USER': 'postgres', #PGUSER
-        'PASSWORD': 'lOVHyomlqvYbnFOzjhHPoZujwaQscRUY', #PGPASSWORD
-        'HOST': 'monorail.proxy.rlwy.net', #PGHOST
-        'PORT': '35085', #PGPORT
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql',
+
+#         'NAME': 'railway', #PGDATABASE
+#         'USER': 'postgres', #PGUSER
+#         'PASSWORD': 'lOVHyomlqvYbnFOzjhHPoZujwaQscRUY', #PGPASSWORD
+#         'HOST': 'monorail.proxy.rlwy.net', #PGHOST
+#         'PORT': '35085', #PGPORT
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
